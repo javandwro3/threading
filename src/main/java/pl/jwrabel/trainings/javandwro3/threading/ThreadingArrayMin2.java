@@ -1,5 +1,7 @@
 package pl.jwrabel.trainings.javandwro3.threading;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 /**
@@ -17,17 +19,23 @@ public class ThreadingArrayMin2 {
 			data[i] = random.nextInt();
 		}
 
+		List<MinThread> threads = new ArrayList<>();
 
-		MinThread thread1 = new MinThread(data, 0, data.length/2);
-		MinThread thread2 = new MinThread(data, data.length/2, data.length);
-		thread1.start();
-		thread2.start();
-		thread1.join();
-		thread2.join();
+		threads.add(new MinThread(data, 0, data.length/2));
+		threads.add(new MinThread(data, data.length/2, data.length));
 
-		int min = thread1.getMin()  < thread2.getMin() ? thread1.getMin() : thread2.getMin();
+		for (MinThread thread : threads) {
+			thread.start();
+		}
 
-		System.out.println("Minimalna wartość w tablicy: " + min);
+		for (MinThread thread : threads) {
+			thread.join();
+		}
+
+//
+//		int min = thread1.getMin()  < thread2.getMin() ? thread1.getMin() : thread2.getMin();
+//
+//		System.out.println("Minimalna wartość w tablicy: " + min);
 
 
 	}
