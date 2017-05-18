@@ -5,6 +5,12 @@ package pl.jwrabel.trainings.javandwro3.threading;
  */
 public class MinThread extends Thread {
 	public MinThread(int[] data, int start, int stop) {
+
+	}
+
+	@Override
+	public void run() {
+
 	}
 
 	int getMin(){
