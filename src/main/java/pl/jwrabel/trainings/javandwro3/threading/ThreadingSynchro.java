@@ -7,6 +7,9 @@ import java.util.List;
  * Created by jakubwrabel on 17/05/2017.
  */
 public class ThreadingSynchro {
+	volatile int x = 0;
+
+
 	public static void main(String[] args) throws InterruptedException {
 		List<Integer> integers = new ArrayList<>();
 		Object lock = new Object();
@@ -42,6 +45,11 @@ public class ThreadingSynchro {
 		thread2.join();
 
 		System.out.println("Rozmiar listy: " + integers.size());
+
+	}
+
+	public synchronized void add(Integer integer){
+		//
 
 	}
 }
