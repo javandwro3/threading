@@ -9,10 +9,10 @@ import java.util.Random;
  */
 public class ThreadingArrayMin2 {
 
-	private final static int THREADS_NUMBER = 2;
+	private final static int THREADS_NUMBER = 3300;
 
 	public static void main(String[] args) throws InterruptedException {
-		int[] data = new int[200_000_000];
+		int[] data = new int[2_000_000];
 
 		Random random = new Random();
 		for (int i = 0; i < data.length; i++) {

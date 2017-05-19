@@ -25,7 +25,6 @@ public class MinThread extends Thread {
 			}
 		}
 		this.foundMin = min;
-
 	}
 
 	int getMin() {
